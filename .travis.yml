@@ -9,7 +9,7 @@ before_script:
  - flake8 --max-complexity=6 --exclude=*.txt,*.md --max-line-length=200 *.py
 
 script:
- - lettuce Test
- - python Test_Figuras.py -v
- - coverage run --branch Test_Figuras.py
+ - lettuce test
+ - python Test_Figura.py -v
+ - coverage run --branch Test_Figura.py
  - coverage report -m
