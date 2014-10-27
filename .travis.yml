@@ -1,0 +1,15 @@
+language: python
+pyton:
+ - "2.7"
+
+install: "pip install -r requirements.txt"
+
+before_script:
+ - autopep8 -ir *.py
+ - flake --max-complexity=3 --exclude=*.txt,*.md --max-line-length=200 *.py
+
+script:
+ - lettuce Test
+ - python Test_Figuras.py -v
+ - coverage run --branch Test_Figuras.py
+ - coverage report -m
